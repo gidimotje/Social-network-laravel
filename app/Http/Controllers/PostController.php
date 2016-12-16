@@ -45,6 +45,9 @@ class PostController extends Controller
 			'body' => 'required'
 		]);
 		$post = Post::find($request['postId']);
+		if (Auth::user() != $post->user) {
+			return redirect()->back();
+		}
 
 		$post->body = $request['body'];
 		$post->update();
