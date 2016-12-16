@@ -40,6 +40,11 @@ Route::post('/upateaccount', [
     'as' => 'account.save'
 ]);
 
+Route::get('/userimage/{filename}', [
+    'uses' => 'UserController@getUserImage',
+    'as' => 'account.image'
+]);
+
 Route::get('/dashboard', [
 	'uses' => 'PostController@getDashboard',
 	'as' => 'dashboard',
@@ -61,4 +66,9 @@ Route::get('/delete-post/{post_id}', [
 Route::post('/edit', [
 	'uses' => 'PostController@postEditPost',
 	'as' => 'edit'
+]);
+
+Route::post('/like', [
+    'uses' => 'PostController@postLikePost',
+    'as' => 'like'
 ]);
