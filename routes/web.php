@@ -30,6 +30,16 @@ Route::get('/logout', [
 	'as' => 'logout'
 ]);
 
+Route::get('/account',[
+	'uses' => 'UserController@getAccount',
+	'as' => 'account'
+]);
+
+Route::post('/upateaccount', [
+    'uses' => 'UserController@postSaveAccount',
+    'as' => 'account.save'
+]);
+
 Route::get('/dashboard', [
 	'uses' => 'PostController@getDashboard',
 	'as' => 'dashboard',
